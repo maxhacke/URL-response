@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Gate</title>
+</head>
+<body>
+<h1>Welcome to the URL Gate</h1>
+<p id="response">Loading...</p>
+
+<script>
+async function fetchURL() {
+    const res = await fetch('/.netlify/functions/gate');
+    const data = await res.json();
+    document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+}
+
+fetchURL();
+</script>
+</body>
+</html>
